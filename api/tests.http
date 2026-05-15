@@ -1,0 +1,43 @@
+### Root
+GET http://localhost:5001/
+
+
+### Get all courses
+GET http://localhost:5001/api/courses
+
+
+### Get course by id
+GET http://localhost:5001/api/courses/1
+
+
+### Get current user
+# In Postman, use Authorization -> Basic Auth:
+# Username: joe@smith.com
+# Password: joepassword
+GET http://localhost:5001/api/users
+Authorization: Basic am9lQHNtaXRoLmNvbTpqb2VwYXNzd29yZA==
+
+
+### Create user
+POST http://localhost:5001/api/users
+Content-Type: application/json
+
+{
+  "firstName": "Nemanja",
+  "lastName": "Ignjatovic",
+  "emailAddress": "nemanja@example.com",
+  "password": "password123"
+}
+
+
+### Create course
+POST http://localhost:5001/api/courses
+Authorization: Basic am9lQHNtaXRoLmNvbTpqb2VwYXNzd29yZA==
+Content-Type: application/json
+
+{
+  "title": "My New Course",
+  "description": "Created from HTTP file",
+  "estimatedTime": "3 hours",
+  "materialsNeeded": "Laptop"
+}
