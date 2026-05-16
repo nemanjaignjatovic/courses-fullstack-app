@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { Header } from './presentation/layout/Header';
 import { SignInPage } from './presentation/auth/SignInPage';
 import { SignUpPage } from './presentation/auth/SignUpPage';
@@ -13,28 +13,28 @@ import { PrivateRoute } from './presentation/routing/PrivateRoute';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route exact path="/" component={CoursesPage} />
-          <PrivateRoute exact path="/courses/create">
-            <CourseFormPage mode="create" />
-          </PrivateRoute>
-          <Route exact path="/courses/:id" component={CourseDetailPage} />
-          <PrivateRoute exact path="/courses/:id/update">
-            <CourseFormPage mode="update" />
-          </PrivateRoute>
-          <Route path="/signin" component={SignInPage} />
-          <Route path="/signup" component={SignUpPage} />
-          <Route path="/signout" component={SignOutPage} />
-          <Route path="/notfound" component={NotFoundPage} />
-          <Route path="/error" component={UnhandledErrorPage} />
-          <Route path="/forbidden" component={ForbiddenPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </div>
-    </Router>
+      <Router>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route exact path="/" component={CoursesPage} />
+            <PrivateRoute exact path="/courses/create">
+              <CourseFormPage mode="create" />
+            </PrivateRoute>
+            <Route exact path="/courses/:id" component={CourseDetailPage} />
+            <PrivateRoute exact path="/courses/:id/update">
+              <CourseFormPage mode="update" />
+            </PrivateRoute>
+            <Route path="/signin" component={SignInPage} />
+            <Route path="/signup" component={SignUpPage} />
+            <Route path="/signout" component={SignOutPage} />
+            <Route path="/notfound" component={NotFoundPage} />
+            <Route path="/error" component={UnhandledErrorPage} />
+            <Route path="/forbidden" component={ForbiddenPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </div>
+      </Router>
   );
 }
 
